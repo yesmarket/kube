@@ -1,0 +1,10 @@
+[
+   {
+      "name": "manager1",
+      "ip": "192.168.81.2",
+      "netmask": "255.255.255.0",
+      "box": "ubuntu/bionic64",
+      "memory": 2048,
+      "cpus": 1
+   }
+]

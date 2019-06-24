@@ -25,20 +25,3 @@ function Add-HostOnlyNetwork {
    VBoxManage hostonlyif ipconfig "$id" --ip $ip --netmask 255.255.255.0
    echo "Host-only Network '$id' created with IP Address $ip"
 }
-
-function New-Cluster {
-   <#
-   .SYNOPSIS
-      Creates a new Host-only Network in VirtualBox.
-   .DESCRIPTION
-      Creates a new Host-only Network in VirtualBox.
-   .Example
-      Add-Network
-   #>
-   if (!(Get-Command vagrant -errorAction SilentlyContinue))
-   {
-      echo 'vagrant required'
-      return
-   }
-   vagrant up
-}

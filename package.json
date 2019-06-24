@@ -2,10 +2,6 @@
   "name": "kube",
   "version": "1.0.0",
   "description": "Kubernetes test lab",
-  "scripts": {
-    "network": "@powershell Add-HostOnlyNetwork",
-    "cluster": "@powershell New-Cluster"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yesmarket/kube.git"

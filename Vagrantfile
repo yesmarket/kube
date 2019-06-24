@@ -22,6 +22,13 @@ Vagrant.configure(2) do |config|
             vb.memory = node[:memory]
             vb.cpus = node[:cpus]
 
+            guest.vm.provision "ansible_local" do |ansible|
+
+               ansible.playbook = node[:playbook]
+               ansible.extra_vars = { node_ip: node[:ip] }
+
+            end
+
          end
 
       end

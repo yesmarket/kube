@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Kubernetes test lab",
   "scripts": {
-    "network": "@powershell Add-Network -id 11"
+    "network": "@powershell Add-HostOnlyNetwork",
+    "cluster": "@powershell New-Cluster"
   },
   "repository": {
     "type": "git",

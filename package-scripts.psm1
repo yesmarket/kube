@@ -1,27 +1,44 @@
 # Kube-Module.psm1
 Write-Host "Loading Kube-Module"
 
-function Add-Network {
+function Add-HostOnlyNetwork {
    <#
    .SYNOPSIS
       Creates a new Host-only Network in VirtualBox.
    .DESCRIPTION
       Creates a new Host-only Network in VirtualBox.
-   .PARAMETER service_name
-      The name of the microservice
+   .PARAMETER ip
+      The ip address of the newtork adapter
    .Example
       Add-Network
    #>
    Param(
-      [int]$id=1,
-      [string]$ip='192.168.101.1',
-      [string]$netmask='255.255.255.0'
+      [string]$ip='192.168.101.1'
    )
    if (!(Get-Command vboxmanage -errorAction SilentlyContinue))
    {
       echo 'virtual box required'
       return
    }
-   VBoxManage hostonlyif create
-   VBoxManage hostonlyif ipconfig "VirtualBox Host-Only Ethernet Adapter #$id" --ip $ip --netmask $netmask
+   $message = VBoxManage hostonlyif create
+   $id = $message | Select-String -Pattern ".*'(.*)'.*" | foreach {$_.Matches.Groups[1].Value}
+   VBoxManage hostonlyif ipconfig "$id" --ip $ip --netmask 255.255.255.0
+   echo "Host-only Network '$id' created with IP Address $ip"
+}
+
+function New-Cluster {
+   <#
+   .SYNOPSIS
+      Creates a new Host-only Network in VirtualBox.
+   .DESCRIPTION
+      Creates a new Host-only Network in VirtualBox.
+   .Example
+      Add-Network
+   #>
+   if (!(Get-Command vagrant -errorAction SilentlyContinue))
+   {
+      echo 'vagrant required'
+      return
+   }
+   vagrant up
 }

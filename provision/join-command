@@ -1,1 +1,0 @@
-kubeadm join 192.168.101.2:6443 --token frf4nj.cr9kg5jjgpzkto82     --discovery-token-ca-cert-hash sha256:6d4364824551559078bf035109954d0c3489aab54a0fd387774826e28b2c3069 

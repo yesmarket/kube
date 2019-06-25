@@ -2,10 +2,28 @@
    {
       "name": "master1",
       "ip": "192.168.101.2",
-      "netmask": "255.255.0.0",
-      "box": "bento/ubuntu-16.04",
-      "memory": 4096,
+      "netmask": "255.255.255.0",
+      "box": "ubuntu/bionic64",
+      "memory": 2048,
       "cpus": 2,
       "playbook": "provision/master-playbook.yml"
+   },
+   {
+      "name": "worker1",
+      "ip": "192.168.101.3",
+      "netmask": "255.255.255.0",
+      "box": "ubuntu/bionic64",
+      "memory": 2048,
+      "cpus": 2,
+      "playbook": "provision/worker-playbook.yml"
+   },
+   {
+      "name": "worker2",
+      "ip": "192.168.101.4",
+      "netmask": "255.255.255.0",
+      "box": "ubuntu/bionic64",
+      "memory": 2048,
+      "cpus": 2,
+      "playbook": "provision/worker-playbook.yml"
    }
 ]

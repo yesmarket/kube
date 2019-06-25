@@ -80,6 +80,7 @@
 
   - name: Configure node ip
     lineinfile:
+      create: yes
       path: /etc/default/kubelet
       line: KUBELET_EXTRA_ARGS=--node-ip={{ node_ip }}
 
@@ -88,6 +89,9 @@
       name: kubelet
       daemon_reload: yes
       state: restarted
+
+  - name: Enable the docker service
+    command: systemctl enable docker.service
 
   - name: Copy the join command to server location
     copy: src=join-command dest=/tmp/join-command.sh mode=0777

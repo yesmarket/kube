@@ -6,7 +6,7 @@
       "box": "ubuntu/bionic64",
       "memory": 2048,
       "cpus": 2,
-      "playbook": "provision/master-playbook.yml"
+      "playbook": "master-playbook.yml"
    },
    {
       "name": "worker1",
@@ -15,7 +15,7 @@
       "box": "ubuntu/bionic64",
       "memory": 2048,
       "cpus": 2,
-      "playbook": "provision/worker-playbook.yml"
+      "playbook": "worker-playbook.yml"
    },
    {
       "name": "worker2",
@@ -24,6 +24,6 @@
       "box": "ubuntu/bionic64",
       "memory": 2048,
       "cpus": 2,
-      "playbook": "provision/worker-playbook.yml"
+      "playbook": "worker-playbook.yml"
    }
 ]

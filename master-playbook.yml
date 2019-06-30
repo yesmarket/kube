@@ -99,9 +99,9 @@
   - name: Setup kubeconfig for vagrant user
     command: "{{ item }}"
     with_items:
-     - mkdir -p /home/vagrant/.kube
-     - cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
-     - chown vagrant:vagrant /home/vagrant/.kube/config
+     - mkdir -p $HOME/.kube
+     - cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+     - chown vagrant:vagrant $HOME/.kube/config
 
   - name: Install calico pod network
     become: false

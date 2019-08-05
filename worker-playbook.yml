@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: true
+  become_method: sudo
   tasks:
   - name: Install packages that allow apt to be used over HTTPS
     apt:

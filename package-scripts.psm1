@@ -35,14 +35,14 @@ function Set-KubeConfig {
    .Example
       Set-KubeConfig
    #>
-   $Env:KUBECONFIG="C:\git\kube\provision\config"
+   $Env:KUBECONFIG="$PSScriptRoot\config"
 }
 
 function New-KubeCluster {
    Param(
       [string]$virtual_network_adapter_ip='192.168.101.1'
    )
-   Add-VirtualNetworkAdapter -ip $ip
+   New-VirtualNetworkAdapter -ip $virtual_network_adapter_ip
    if (!(Get-Command vagrant -errorAction SilentlyContinue))
    {
       echo 'vagrant required'
@@ -142,6 +142,8 @@ function New-Awx {
       Helper function to remove docker containers, volumes, networks, and images.
    .DESCRIPTION
       Helper function to remove docker containers, volumes, networks, and images.
+   .PARAMETER docker_machine_name
+      Docker machine name to configure
    .PARAMETER reset_containers
       Specifies, whether or not, existing docker containers will be removed.
    .PARAMETER reset_containers

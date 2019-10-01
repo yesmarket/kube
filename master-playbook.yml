@@ -1,6 +1,8 @@
 ---
 - hosts: all
-  become: true
+  become: yes
+  become_user: root
+  become_method: sudo
   tasks:
   - name: Install packages that allow apt to be used over HTTPS
     apt:
@@ -104,6 +106,7 @@
 
   - name: Copy kubeconfig for vagrant user
     copy:
+      remote_src: yes
       src: /etc/kubernetes/admin.conf
       dest: /home/vagrant/.kube/config
       owner: vagrant
@@ -111,12 +114,13 @@
 
   - name: Copy kubeconfig back to synced dir
     copy:
+      remote_src: yes
       src: /etc/kubernetes/admin.conf
       dest: /vagrant/config
 
   - name: Install calico pod network
     become: false
-    command: kubectl create -f https://docs.projectcalico.org/v3.7/manifests/calico.yaml
+    command: kubectl create -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
 
   - name: Generate join command
     command: kubeadm token create --print-join-command

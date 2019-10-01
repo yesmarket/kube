@@ -16,14 +16,14 @@
       "memory": 2048,
       "cpus": 2,
       "playbook": "worker-playbook.yml"
-   },
-   {
-      "name": "worker2",
-      "ip": "192.168.101.4",
-      "netmask": "255.255.255.0",
-      "box": "ubuntu/bionic64",
-      "memory": 2048,
-      "cpus": 2,
-      "playbook": "worker-playbook.yml"
-   }
+   }//,
+   // {
+   //    "name": "worker2",
+   //    "ip": "192.168.101.4",
+   //    "netmask": "255.255.255.0",
+   //    "box": "ubuntu/bionic64",
+   //    "memory": 2048,
+   //    "cpus": 2,
+   //    "playbook": "worker-playbook.yml"
+   // }
 ]
